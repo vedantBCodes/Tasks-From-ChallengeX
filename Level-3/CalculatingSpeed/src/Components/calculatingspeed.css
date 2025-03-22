@@ -1,0 +1,35 @@
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container
+{
+    padding: 20px;
+    background-color: rgb(252, 253, 255);
+    box-shadow: 2px 2px 2px 2px rgb(222, 222, 222);
+}
+
+input
+{
+    padding: 10px 20px;
+    border: none;
+    font-size: 20px;
+    background-color: rgb(240, 242, 244);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(229, 228, 228);
+}
+button
+{
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 20px;
+}
+p
+{
+    font-size: 25px;
+}
