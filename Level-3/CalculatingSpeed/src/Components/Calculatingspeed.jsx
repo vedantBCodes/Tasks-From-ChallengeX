@@ -1,22 +1,22 @@
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import './calculatingspeed.css'
+import './calculatingspeed.css';
 
 const Calculatingspeed = () => {
     const expressionBox = useRef(null);
     const answerBox = useRef(null);
     const startBtn = useRef(null);
     const submitBtn = useRef(null);
-    const [expression, setExpression] = useState(''); // Holds the generated expression
+    const [expression, setExpression] = useState(null); // Holds the generated expression
     const [result, setResult] = useState(null); // Holds the evaluated result
-    const [time, setTime] = useState(20);  // Timer starting from 20
+    const [time, setTime] = useState(30);  // Timer starting from 20
     const [isRunning, setIsRunning] = useState(false);  // Controls the stopwatch state
     const [correctExpressionCount,setCorrectExpressionCount] = useState(0);
     const [totalExpressionCount,setTotalExpressionCount] = useState(0);
-
-    // const [randomExpression,setRandomExpression] = useState(null);
-
+    let p;
+    let h3;
+    let restartBtn;
     useEffect(() => {
         let timer;
         if (isRunning && time > 0) {
@@ -58,31 +58,40 @@ const Calculatingspeed = () => {
     console.log(temp);
     setExpression(temp);
     console.log("Expression : ",expression);
-    setTotalExpressionCount((totalExpressionCount)=>{totalExpressionCount+1});
+    setTotalExpressionCount(totalExpressionCount+1);
 
-    
-    
-    // Evaluate the generated expression
-    // try {
-    //     const evalResult = eval(randomExpression); // Evaluate the expression using eval
-    //     setResult(evalResult.toFixed(2)); // Round result to 2 decimal places (if float)
-    //   } catch (error) {
-    //     setResult('Error evaluating expression');
-    //   }
     }
     if(time==0)
     {
         let container=document.querySelector('.container');
-        let p=document.createElement('p');
+        p=document.createElement('p');
         p.innerText=`You solved ${correctExpressionCount} out of ${totalExpressionCount} !`;
         container.appendChild(p);
-        let h3=document.createElement('h3');
+        h3=document.createElement('h3');
         h3.innerText="Game Over !!!!";
         h3.classList.add('gameOverStatement');
         container.appendChild(h3);
+        restartBtn=document.createElement('button');
+        restartBtn.innerText='Restart';
+        restartBtn.addEventListener('click', restart);
+        container.append(restartBtn);
         disableEverything();
 
         // alert("Game Over !!!!!");
+    }
+    function restart()
+    {
+        expressionBox.current.disabled=false;
+        answerBox.current.disabled=false;
+        startBtn.current.disabled = false;
+        submitBtn.current.disabled = false;
+        setTime(30);
+        setIsRunning(false);
+        let container=document.querySelector('.container');
+        container.removeChild(p);
+        container.removeChild(h3);
+        container.removeChild(restartBtn);
+        expressionBox.current.value='';
     }
     function handleStartClick()
     {
@@ -121,7 +130,7 @@ const Calculatingspeed = () => {
         else if(ans==parseInt(result))
         {
             alert("Yess");
-            setCorrectExpressionCount((correctExpressionCount)=>{correctExpressionCount+1});
+            setCorrectExpressionCount(correctExpressionCount+1);
             expressionBox.current.value='';
             answerBox.current.value='';
             getRandomExpression();
@@ -142,7 +151,6 @@ const Calculatingspeed = () => {
     <div className="container">
     <h1>Calculating Speed</h1>
     <button onClick={handleStartClick} ref={startBtn}>Start</button> <br /> <br />
-    
     <input type="text" placeholder=' Expression :' readOnly ref={expressionBox}/> <br /> <br />
     <input type="number" placeholder='Your Ans :'  ref={answerBox}/> <br /> <br />
     <button onClick={handleSubmitClick} ref={submitBtn}>Submit</button>
