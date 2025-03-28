@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f3f4f6;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .App h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .gridContainer {
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .box.colored {
+    background-color: yellowgreen; /* Color when showing pattern */
+  }
+  
+  .box.correct {
+    background-color: yellowgreen; /* Color when user clicks correctly */
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  h2 {
+    color: red;
+    margin-top: 20px;
+  }
+  
