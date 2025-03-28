@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* background-color: antiquewhite; */
+  /* height: 100vh; Center vertically in the viewport */
+}
+  
+  .subContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0px 10px;
+  }
+  
+  button {
+    width: 100%; /* Let the grid manage the layout */
+    height: 70px; /* Consistent button size */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  input {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 7px;
+    color: white;
+    background-color: black;
+  }
+  
+  input:hover {
+    color: black;
+    background-color: rgb(244, 238, 238);
+    transition: 1s;
+  }
+  
+  #attempts {
+    height: 10vh;
+  }
+  
+  h1 {
+    padding: 10px 20px;
+    font-size: 25px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    /* text-align: center; */
+    /* float: center; */
+  }
+  
+  /* @media (max-width: 500px) {
+    button {
+      width: 70px;
+      height: 70px;
+      background-color: antiquewhite;
+    }
+  } */
+
+  
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 10px; /* Spacing between buttons */
+    width: 300px; /* Width for the entire grid */
+  }
+  
+
+    
