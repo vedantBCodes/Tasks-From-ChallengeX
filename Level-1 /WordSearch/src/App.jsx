@@ -1,11 +1,11 @@
-
 import './App.css'
-import Quiz from './Components/Quiz'
+import WordSearch from './Components/WordSearch'
 
 function App() {
+
   return (
     <>
-      <Quiz/>
+     <WordSearch/>
     </>
   )
 }

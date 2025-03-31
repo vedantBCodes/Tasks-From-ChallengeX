@@ -1,0 +1,92 @@
+.word-search-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    height: 90vh;
+  }
+  
+  .grid {
+    display: inline-block;
+    margin: 20px auto;
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #fefbfb;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px black;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .cell {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+    border: 2px solid #333;
+    background-color: #efeeee;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .cell:hover {
+    background-color: #ddd;
+    transform: scale(1.1);
+    transition: 1s;
+  }
+  
+  .selected {
+    background-color: rgb(192, 192, 153);
+    border-color: orange;
+  }
+  
+  .words-found {
+    margin-top: 20px;
+  }
+  
+  .words-found h2 {
+    font-size: 20px;
+  }
+  
+  .words-found ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .words-found li {
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+  }
+  .wordSearchRestartBtn
+  {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c9c9c9;
+    font-size: 20px;
+  }
+  .wordSearchRestartBtn:hover
+  {
+    padding: 12px 22px;
+    transition: 1s;
+  }
+  .cancel-word-button
+  {
+    color: blue;
+    border: 1px solid blue;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .cancel-word-button:hover
+  {
+    background-color: #f1f1f1;
+    transition: 1s;
+  }
