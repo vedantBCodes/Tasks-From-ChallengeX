@@ -70,40 +70,44 @@ const WordSearch = () => {
   };
 
   return (
-    <div className="word-search-container">
-      <h1 style={{color:'blue'}}>Word Search Game</h1>
-      <p style={{fontSize:'20px',color:'green'}}>Find 5 words in 30 seconds </p>
-      {gameOver ? (
-        time === 0 ? <h2>Game Over! Time's up!</h2> : <h2>Congratulations! You found all words!</h2>
-      ) : (
-        <h2>Time Left: {time} sec</h2>
-      )}
-      <div className="grid">
-        {grid.map((row, rowIndex) => (
-          <div key={rowIndex} className="row">
-            {row.map((letter, colIndex) => (
-              <button
-                key={colIndex}
-                className={`cell ${selectedCells.some(c => c.row === rowIndex && c.col === colIndex) ? "selected" : ""}`}
-                onClick={() => handleCellClick(rowIndex, colIndex)}
-              >
-                {letter}
-              </button>
-            ))}
-          </div>
-        ))}
-      </div>
-      <div className="words-found">
-        <h2>Words Found:</h2>
-        <ul>
-          {foundWords.map((word, index) => (
-            <li key={index}>{word}</li>
+    <main>
+      <div className="word-search-container">
+        <h1 style={{color:'blue',fontSize:'40px'}}>Word Search Game</h1>
+        <p style={{fontSize:'20px',color:'green'}}>Find 5 hidden words in 30 seconds</p>
+        {gameOver ? (
+          time === 0 ? <h2>Game Over ! Time's up !</h2> : <h2>Congratulations! You found all words!</h2>
+        ) : (
+          <h2>Time Left: {time} sec</h2>
+        )}
+        <div className="wordSearchGrid">
+          {grid.map((row, rowIndex) => (
+            <div key={rowIndex} className="wordSearchRow">
+              {row.map((letter, colIndex) => (
+                <button
+                  key={colIndex}
+                  className={`wordSearchCell ${selectedCells.some(c => c.row === rowIndex && c.col === colIndex) ? "selected" : ""}`}
+                  onClick={() => handleCellClick(rowIndex, colIndex)}
+                >
+                  {letter}
+                </button>
+              ))}
+            </div>
           ))}
-        </ul>
+        </div>
+        <div className="words-found">
+        <h4 style={{color:'rgb(107, 108, 108)'}}>Words Found: {foundWords.length} / 5</h4>
+          <ul>
+            <li>
+              {foundWords.map((word, index) => (
+                <span key={index}>{word}&nbsp;&nbsp;</span>
+              ))}
+            </li>
+          </ul>
+        </div>
+        <button onClick={cancelWordSelection} className="cancel-word-button">Cancel Selected letters</button> <br /><br />
+        {gameOver && <button onClick={restartGame} className="wordSearchRestartBtn">Restart Game</button>}
       </div>
-      <button onClick={cancelWordSelection} className="cancel-word-button">Cancel Selected letters</button> <br /> <br />
-      {gameOver && <button onClick={restartGame} className="wordSearchRestartBtn">Restart Game</button>}
-    </div>
+    </main>
   );
 };
 

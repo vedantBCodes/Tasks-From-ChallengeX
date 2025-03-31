@@ -1,10 +1,23 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main
+{
+  background-color: rgb(213, 212, 212);
+  height: 100vh;
+  position: relative;
+  bottom: 25px;
+}
 .word-search-container {
     text-align: center;
     font-family: Arial, sans-serif;
     height: 90vh;
   }
   
-  .grid {
+  .wordSearchGrid {
     display: inline-block;
     margin: 20px auto;
     border: 2px solid #333;
@@ -15,11 +28,11 @@
     box-shadow: 2px 2px 2px 2px black;
   }
   
-  .row {
+  .wordSearchRow {
     display: flex;
   }
   
-  .cell {
+  .wordSearchCell {
     width: 50px;
     height: 50px;
     margin: 5px;
@@ -35,7 +48,7 @@
     border-radius: 5px;
   }
   
-  .cell:hover {
+  .wordSearchCell:hover {
     background-color: #ddd;
     transform: scale(1.1);
     transition: 1s;
@@ -59,7 +72,7 @@
     padding: 0;
   }
   
-  .words-found li {
+  .words-found li span{
     font-size: 18px;
     font-weight: bold;
     color: green;
@@ -69,7 +82,7 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #c9c9c9;
+    background-color: #efefef;
     font-size: 20px;
   }
   .wordSearchRestartBtn:hover
@@ -84,6 +97,7 @@
     padding: 10px 20px;
     background-color: white;
     border-radius: 5px;
+    font-size: 25px;
   }
   .cancel-word-button:hover
   {
